@@ -37,13 +37,13 @@ const Header = ({ user, logout }) => (
       <>
         <HeaderUsername username={user.username} />
         <HeaderNavLink as='span' onClick={logout}>
-          log out
+          cikis
         </HeaderNavLink>
       </>
     ) : (
       <>
-        <HeaderNavLink to='/login'>log in</HeaderNavLink>
-        <HeaderNavLink to='/signup'>sign up</HeaderNavLink>
+        <HeaderNavLink to='/login'>giris</HeaderNavLink>
+        <HeaderNavLink to='/signup'>uye ol</HeaderNavLink>
       </>
     )}
   </Wrapper>

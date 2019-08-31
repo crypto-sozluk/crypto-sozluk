@@ -30,19 +30,19 @@ class LoginForm extends React.Component {
       >
         <Field
           name='username'
-          label='username'
+          label='kullanici adi'
           type='text'
           component={renderField}
           validate={usernameValidator}
         />
         <Field
           name='password'
-          label='password'
+          label='sifre'
           type='password'
           component={renderField}
           validate={passwordValidator}
         />
-        <SubmitButton type='submit'>log in</SubmitButton>
+        <SubmitButton type='submit'>giris</SubmitButton>
       </Form>
     );
   }

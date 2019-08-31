@@ -1,15 +1,15 @@
 export const checkMaxLength = (value, len) =>
   value && value.length <= len
     ? undefined
-    : `must be less than ${len} characters`;
+    : `${len} karakterden az olmalidir`;
 
 export const checkMinLength = (value, len) =>
   value && value.length >= len
     ? undefined
-    : `must be more than ${len} characters`;
+    : `${len} karakterden fazla olmalidir`;
 
 export const checkValidChars = value =>
-  /^[a-zA-Z0-9_-]+$/.test(value) ? undefined : 'contains invalid characters';
+  /^[a-zA-Z0-9_-]+$/.test(value) ? undefined : 'gecersiz karakterler iceriyor';
 
 export const checkIfTrimmed = value =>
   value.trim() === value ? undefined : 'cannot start or end with whitespace';
@@ -28,7 +28,7 @@ const min = len => value => checkMinLength(value, len);
 const validChars = value => checkValidChars(value);
 const trimmed = value => checkIfTrimmed(value);
 
-export const required = value => (value ? undefined : 'required');
+export const required = value => (value ? undefined : 'gerekli');
 export const postType = value =>
   value === 'link' || value === 'text'
     ? undefined
