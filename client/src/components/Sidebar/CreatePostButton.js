@@ -6,12 +6,13 @@ import Button from '../shared/Button';
 const CreatePostButton = styled(Button)`
   border-radius: 2px 2px 0 0;
   padding: 16px;
+  margin: 13px;
   text-decoration: none;
   text-align: center;
 `;
 
 const SidebarCreatePostButton = () => (
-  <CreatePostButton as={Link} to='/createpost'>create post</CreatePostButton>
+  <CreatePostButton as={Link} to='/createpost'>post yarat</CreatePostButton>
 );
 
 export default SidebarCreatePostButton;

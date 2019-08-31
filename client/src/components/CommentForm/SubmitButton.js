@@ -8,7 +8,7 @@ const StyledSubmitButton = styled(SubmitButton)`
 `;
 
 const CommentFormSubmitButton = () => (
-  <StyledSubmitButton type='submit'>submit</StyledSubmitButton>
+  <StyledSubmitButton type='submit'>gonder</StyledSubmitButton>
 );
 
 export default CommentFormSubmitButton;

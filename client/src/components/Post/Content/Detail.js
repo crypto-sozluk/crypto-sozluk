@@ -28,11 +28,11 @@ const Wrapper = styled.div`
 const PostContentDetail = props => (
   <Wrapper>
     <Link to={`/a/${props.category}/${props.id}`}>
-      {props.commentCount} comment{props.commentCount !== 1 ? 's' : null}
+      {props.commentCount} yorum{props.commentCount !== 1 ? ' var' : null}
     </Link>
     <Link to={`/a/${props.category}`}>/a/{props.category}</Link>
-    <span>by</span>
     <Author username={props.author && props.author.username} />
+    <span>tarafından</span>
     <span>{moment(props.created).fromNow()}</span>
   </Wrapper>
 );

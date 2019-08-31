@@ -66,7 +66,7 @@ class CreatePostForm extends React.Component {
             component={renderField}
           />
         )}
-        <SubmitButton type='submit'>create post</SubmitButton>
+        <SubmitButton type='submit'>post yayınla</SubmitButton>
       </Form>
     );
   }
