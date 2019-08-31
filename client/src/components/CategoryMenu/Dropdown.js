@@ -14,7 +14,7 @@ const Dropdown = styled.select`
   appearance: none;
 `;
 
-class CategoryMenuDropdown extends React.Component {
+class CategoryMenuDropdownList extends React.Component {
   mapCategories = () =>
     ['all', ...categories].map((category, index) => (
       <option key={index} value={category}>
@@ -41,4 +41,4 @@ class CategoryMenuDropdown extends React.Component {
   }
 }
 
-export default CategoryMenuDropdown;
+export default CategoryMenuDropdownList;

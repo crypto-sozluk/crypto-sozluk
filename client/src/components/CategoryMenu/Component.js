@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Route } from 'react-router-dom';
-import CategoryMenuDropdown from './Dropdown';
-import CategoryMenuCreatePostButton from './CreatePostButton';
+import CategoryMenuDropdownList from './Dropdown';
+import CategoryMenuCreatePostBtn from './CreatePostButton';
 
 const Menu = styled.nav`
   display: none;
@@ -20,13 +20,13 @@ const CategoryMenu = props => (
     <Route
       path='/a/:category'
       children={({ match, history }) => (
-        <CategoryMenuDropdown
+        <CategoryMenuDropdownList
           category={match ? match.params.category : 'all'}
           history={history}
         />
       )}
     />
-    {props.token && <CategoryMenuCreatePostButton />}
+    {props.token && <CategoryMenuCreatePostBtn />}
   </Menu>
 );
 

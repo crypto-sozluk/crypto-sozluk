@@ -24,9 +24,9 @@ class PostDetailInfoBar extends React.Component {
   render() {
     return (
       <Wrapper round={!this.props.token}>
-        <span>{this.props.views} views</span>
+        <span>{this.props.views} goruntuleme</span>
         <span>&nbsp;|&nbsp;</span>
-        <span>{this.props.upvotePercentage}% upvoted</span>
+        <span>{this.props.upvotePercentage}% olumlu oy</span>
         {this.props.token &&
           (this.props.user.id === this.props.author.id ||
             this.props.user.admin) && (

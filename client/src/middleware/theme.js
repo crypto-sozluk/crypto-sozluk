@@ -1,7 +1,7 @@
-import { TOGGLE_DARK_THEME } from '../actions/theme';
+import { T_D_T } from '../actions/theme';
 
 export default () => next => action => {
-  if (action.type === TOGGLE_DARK_THEME) {
+  if (action.type === T_D_T) {
     const dark = localStorage.getItem('dark') === 'true';
     localStorage.setItem('dark', (!dark).toString());
   }

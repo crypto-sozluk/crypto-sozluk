@@ -48,6 +48,6 @@ const enhance = compose(
   )
 );
 
-const CreatePostFormContainer = enhance(CreatePostForm);
+const CreatePostFormCon = enhance(CreatePostForm);
 
-export default CreatePostFormContainer;
+export default CreatePostFormCon;

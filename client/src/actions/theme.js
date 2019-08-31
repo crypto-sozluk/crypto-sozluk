@@ -1,2 +1,2 @@
-export const TOGGLE_DARK_THEME = 'TOGGLE_DARK_THEME';
-export const toggleDarkTheme = () => ({ type: TOGGLE_DARK_THEME });
+export const T_D_T = 'T_D_T';
+export const toggleDarkTheme = () => ({ type: T_D_T });

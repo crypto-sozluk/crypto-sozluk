@@ -11,8 +11,8 @@ const CreatePostButton = styled(Button)`
   text-decoration: none;
 `;
 
-const CategoryMenuCreatePostButton = () => (
+const CategoryMenuCreatePostBtn = () => (
   <CreatePostButton as={Link} to='/createpost'>create post</CreatePostButton>
 );
 
-export default CategoryMenuCreatePostButton;
+export default CategoryMenuCreatePostBtn;

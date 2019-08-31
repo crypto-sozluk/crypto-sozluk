@@ -5,10 +5,10 @@ import theme from '../../theme';
 import history from '../../util/history';
 import GlobalStyle from '../../globalStyle';
 import HeaderContainer from '../Header/Container';
-import ErrorNotificationContainer from '../ErrorNotification/Container';
+import ErrorNotificationCon from '../ErrorNotification/Container';
 import LoginFormContainer from '../LoginForm/Container';
 import SignupFormContainer from '../SignupForm/Container';
-import CreatePostFormContainer from '../CreatePostForm/Container';
+import CreatePostFormCon from '../CreatePostForm/Container';
 import Home from '../Home';
 
 const App = props => (
@@ -17,11 +17,11 @@ const App = props => (
       <>
         <GlobalStyle />
         <Route component={HeaderContainer} />
-        <Route component={ErrorNotificationContainer} />
+        <Route component={ErrorNotificationCon} />
         <Switch>
           <Route path='/login' component={LoginFormContainer} />
           <Route path='/signup' component={SignupFormContainer} />
-          <Route path='/createpost' component={CreatePostFormContainer} />
+          <Route path='/createpost' component={CreatePostFormCon} />
           <Route path='/' component={Home} />
         </Switch>
       </>

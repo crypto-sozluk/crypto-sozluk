@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import Author from '../../shared/Author';
-import CommentDetailTimestamp from './Timestamp';
+import CommentDetayTimestamp from './Timestamp';
 import DeleteButton from '../../shared/DeleteButton';
 
 const Wrapper = styled.div`
@@ -12,13 +12,13 @@ const Wrapper = styled.div`
 `;
 
 class CommentDetail extends React.Component {
-  deleteComment = () => this.props.attemptDeleteComment(this.props.id);
+  deleteComment = () => this.props.tryDeleteComment(this.props.id);
 
   render() {
     return (
       <Wrapper>
         <Author username={this.props.author && this.props.author.username} />
-        <CommentDetailTimestamp created={this.props.created} />
+        <CommentDetayTimestamp created={this.props.created} />
         {this.props.token &&
           (this.props.user.id === this.props.author.id ||
             this.props.user.admin) && (

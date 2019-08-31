@@ -122,7 +122,7 @@ const deleteCommentRequest = { type: DELETE_COMMENT_REQUEST };
 const deleteCommentSuccess = post => ({ type: DELETE_COMMENT_SUCCESS, post });
 const deleteCommentError = error => ({ type: DELETE_COMMENT_ERROR, error });
 
-export const attemptDeleteComment = comment => async (dispatch, getState) => {
+export const tryDeleteComment = comment => async (dispatch, getState) => {
   dispatch(deleteCommentRequest);
   try {
     const { id: post } = getState().posts.post;

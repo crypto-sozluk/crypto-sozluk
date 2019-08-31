@@ -10,12 +10,12 @@ const dark = {
   normalText: '#ffffff',
   mutedText: '#b0b8bf',
   border: '#333333',
-  accent: '#33a0ff',
-  pageBackground: '#1b1b1b',
+  accent: '#778899',
+  pageBackground: '#36465D',
   voteButtonHover: '#383838',
-  foreground: '#262626',
-  activeBackground: '#333333',
-  inputBackground: '#212121',
+  foreground: '#36465D',
+  activeBackground: '#3b526a',
+  inputBackground: '#3b526a',
   shadow: 'rgba(0, 0, 0, 0.4)'
 };
 
@@ -24,7 +24,7 @@ const light = {
   normalText: '#454f5b',
   mutedText: '#818e99',
   border: '#ebedf0',
-  accent: '#1890ff',
+  accent: '#e19601',
   pageBackground: '#f4f6f8',
   voteButtonHover: '#f2f2f2',
   foreground: '#ffffff',
