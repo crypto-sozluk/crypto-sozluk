@@ -2,19 +2,20 @@ import moment from 'moment';
 
 moment.updateLocale('en', {
   relativeTime: {
-    future: 'in %s',
-    past: '%s ago',
-    s:  '%ds',
-    ss: '%ds',
-    m:  '1m',
-    mm: '%dm',
-    h:  '1h',
-    hh: '%dh',
-    d:  '1d',
-    dd: '%dd',
-    M:  '1M',
-    MM: '%dM',
-    y:  '1y',
-    yy: '%dY'
+    future : '%s sonra',
+    past : '%s önce',
+    s : 'birkaç saniye',
+    ss : '%d saniye',
+    m : 'bir dakika',
+    mm : '%d dakika',
+    h : 'bir saat',
+    hh : '%d saat',
+    d : 'bir gün',
+    dd : '%d gün',
+    M : 'bir ay',
+    MM : '%d ay',
+    y : 'bir yıl',
+    yy : '%d yıl',
   }
 });
+

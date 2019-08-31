@@ -34,6 +34,7 @@ const PostContentDetail = props => (
     <Author username={props.author && props.author.username} />
     <span>tarafından</span>
     <span>{moment(props.created).fromNow()}</span>
+    <span>yaratıldı</span>
   </Wrapper>
 );
 
