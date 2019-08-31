@@ -9,9 +9,8 @@ const Logo = styled(Link)`
   margin-right: auto;
   font-size: 24px;
   font-weight: 500;
-  color: #7fffd3 ${props => props.theme.normalText};
+  color: ${props => props.theme.normalText};
   text-decoration: none;
-  background-image: url(../../img/logo.png);
   
   @media (max-width: 425px) {
     padding: 0 8px 0 16px;
@@ -19,6 +18,6 @@ const Logo = styled(Link)`
   }
 `;
 
-const HeaderLogo = () => <Logo to='/'>crypto sozluk</Logo>;
+const HeaderLogo = () => <Logo to='/'>cryptosozluk</Logo>;
 
 export default HeaderLogo;

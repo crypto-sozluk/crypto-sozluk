@@ -18,7 +18,7 @@ const Menu = styled.nav`
 const CategoryMenu = props => (
   <Menu>
     <Route
-      path='/c/:category'
+      path='/a/:category'
       children={({ match, history }) => (
         <CategoryMenuDropdown
           category={match ? match.params.category : 'all'}

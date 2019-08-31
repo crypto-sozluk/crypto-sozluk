@@ -17,7 +17,7 @@ const mapCategories = categories =>
 const SidebarCategoryList = () => (
   <CategoryList>
     <SidebarCategoryListHeader />
-    {mapCategories(['anasayfa', ...categories])}
+    {mapCategories(['all', ...categories])}
   </CategoryList>
 );
 

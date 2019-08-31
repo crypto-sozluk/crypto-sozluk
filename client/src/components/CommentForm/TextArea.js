@@ -30,7 +30,7 @@ class CommentFormTextArea extends React.Component {
     <TextArea
       as='textarea'
       {...field.input}
-      placeholder='yorumunuzu girin'
+      placeholder='enter your comment'
       rows='2'
       onKeyDown={this.onKeyDown}
     />

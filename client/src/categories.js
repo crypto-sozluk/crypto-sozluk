@@ -1,6 +1,6 @@
 const categories = [
-  'BTC',
-  'ETH',
+  'music',
+  'funny',
   'videos',
   'programming',
   'news',

@@ -29,7 +29,7 @@ const Home = () => (
       <Route exact path='/' component={PostListContainer} />
       <Route
         exact
-        path='/c/:category'
+        path='/a/:category'
         render={({ match }) => (
           <PostListContainer category={match.params.category} />
         )}
@@ -43,7 +43,7 @@ const Home = () => (
       />
       <Route
         exact
-        path='/c/:category/:post'
+        path='/a/:category/:post'
         render={({ match, history }) => (
           <PostDetailContainer id={match.params.post} history={history} />
         )}

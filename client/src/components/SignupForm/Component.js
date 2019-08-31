@@ -30,25 +30,25 @@ class SignupForm extends React.Component {
       >
         <Field
           name='username'
-          label='kullanici adi'
+          label='username'
           type='text'
           component={renderField}
           validate={usernameValidator}
         />
         <Field
           name='password'
-          label='sifre'
+          label='password'
           type='password'
           component={renderField}
           validate={passwordValidator}
         />
         <Field
           name='password2'
-          label='sifre tekrar'
+          label='confirm password'
           type='password'
           component={renderField}
         />
-        <SubmitButton type='submit'>uye ol</SubmitButton>
+        <SubmitButton type='submit'>sign up</SubmitButton>
       </Form>
     );
   }
