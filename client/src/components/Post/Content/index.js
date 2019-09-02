@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 const renderContent = props => {
   switch (props.type) {
     case 'link':
-      return <PostContentPreview>{props.url}</PostContentPreview>;
+      return <PostContentFullText>{props.url}</PostContentFullText>;
 
     case 'text':
       if (props.showFullPost) {

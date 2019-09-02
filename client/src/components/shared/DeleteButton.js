@@ -15,7 +15,7 @@ const Button = styled.button`
 `;
 
 const DeleteButton = props => (
-  <Button onClick={props.onClick}>delete</Button>
+  <Button onClick={props.onClick}>sil</Button>
 );
 
 export default DeleteButton;

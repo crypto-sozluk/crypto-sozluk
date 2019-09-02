@@ -35,7 +35,7 @@ const Header = ({ user, logout }) => (
     <HeaderDarkButtonContainer />
     {user ? (
       <>
-        <HeaderUsername username={user.username} />
+        <HeaderUsername as='span' username={user.username}/>
         <HeaderNavLink as='span' onClick={logout}>
           cikis
         </HeaderNavLink>

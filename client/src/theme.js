@@ -9,22 +9,22 @@ const dark = {
   ...constants,
   normalText: '#ffffff',
   mutedText: '#b0b8bf',
-  border: '#333333',
+  border: '#243447',
   accent: '#778899',
   pageBackground: '#36465D',
   voteButtonHover: '#383838',
   foreground: '#36465D',
   activeBackground: '#3b526a',
   inputBackground: '#3b526a',
-  shadow: 'rgba(0, 0, 0, 0.4)'
+  shadow: '#243447'
 };
 
 const light = {
   ...constants,
-  normalText: '#454f5b',
+  normalText: '#d56e60',
   mutedText: '#818e99',
   border: '#ebedf0',
-  accent: '#e19601',
+  accent: '#d56e60',
   pageBackground: '#f4f6f8',
   voteButtonHover: '#f2f2f2',
   foreground: '#ffffff',

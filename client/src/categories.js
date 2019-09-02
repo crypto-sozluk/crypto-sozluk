@@ -4,7 +4,11 @@ const categories = [
     'videos',
     'programming',
     'news',
-    'fashion'
+    'fashion',
+    'borsa',
+    'ou',
+    'zou',
+    'qoe'
   ];
   
   export default categories;

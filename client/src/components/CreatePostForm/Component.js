@@ -48,13 +48,13 @@ class CreatePostForm extends React.Component {
         />
         <Field
           name='category'
-          label='category'
+          label='kategori'
           type='select'
           component={renderField}
         >
           {this.mapCategories()}
         </Field>
-        <Field name='title' label='title' type='text' component={renderField} />
+        <Field name='title' label='baslik' type='text' component={renderField} />
         {this.props.form.values.type === 'link' && (
           <Field name='url' label='url' type='url' component={renderField} />
         )}
