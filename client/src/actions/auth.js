@@ -26,10 +26,11 @@ const signupRequest = { type: SIGNUP_REQUEST };
 const signupSuccess = token => ({ type: SIGNUP_SUCCESS, token });
 const signupError = error => ({ type: SIGNUP_ERROR, error });
 
-export const attemptSignup = (username, password) => async dispatch => {
+//duzenleme
+export const attemptSignup = (email, username, password) => async dispatch => {
   dispatch(signupRequest);
   try {
-    const token = await signup(username, password);
+    const token = await signup(email, username, password);
     dispatch(signupSuccess(token));
   } catch (error) {
     dispatch(signupError(error));

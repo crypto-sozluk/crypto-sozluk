@@ -8,6 +8,9 @@ export const checkMinLength = (value, len) =>
     ? undefined
     : `${len} karakterden fazla olmalidir`;
 
+export const checkEmail = value =>
+(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value)) ? undefined : '@ - . gibi karakterler eksik';
+
 export const checkValidChars = value =>
   /^[a-zA-Z0-9_-]+$/.test(value) ? undefined : 'gecersiz karakterler iceriyor';
 
@@ -25,6 +28,7 @@ export const validUrl = value => {
 
 const max = len => value => checkMaxLength(value, len);
 const min = len => value => checkMinLength(value, len);
+const validEmail = value => checkEmail(value);
 const validChars = value => checkValidChars(value);
 const trimmed = value => checkIfTrimmed(value);
 
@@ -33,6 +37,8 @@ export const postType = value =>
   value === 'link' || value === 'text'
     ? undefined
     : 'must be link or text post';
+    //duzenleme
+export const emailValidator = [required, validEmail, trimmed];    
 export const usernameValidator = [required, max(32), validChars, trimmed];
 export const passwordValidator = [required, min(8), max(72)];
 export const titleValidator = value =>
