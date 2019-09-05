@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
   }
 
   onSubmit = ({ username, password }) => {
-    this.props.attemptLogin(username, password);
+    this.props.attemptLogin( username, password);
   };
 
   render() {

@@ -67,7 +67,7 @@ const methods = {
   }
 };
 
-export async function login ( username, password) {
+export async function login (username, password) {
   const json = await methods.post('login', { username, password });
   return json.token;
 }

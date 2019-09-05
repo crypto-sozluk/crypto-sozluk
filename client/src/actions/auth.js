@@ -8,7 +8,8 @@ const loginRequest = { type: LOGIN_REQUEST };
 const loginSuccess = token => ({ type: LOGIN_SUCCESS, token });
 const loginError = error => ({ type: LOGIN_ERROR, error });
 
-export const attemptLogin = (username, password) => async dispatch => {
+
+export const attemptLogin = ( username, password ) => async dispatch => {
   dispatch(loginRequest);
   try {
     const token = await login(username, password);
