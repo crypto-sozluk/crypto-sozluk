@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
           component={renderField}
           validate={passwordValidator}
         />
-        <Link to="/forgot-password">Uye ol</Link>
+        <Link to="/forgot-password">sifremi unuttum</Link>
         <SubmitButton type='submit'>giris</SubmitButton>
       </Form>
     );
