@@ -8,6 +8,7 @@ import HeaderContainer from '../Header/Container';
 import ErrorNotificationCon from '../ErrorNotification/Container';
 import LoginFormContainer from '../LoginForm/Container';
 import SignupFormContainer from '../SignupForm/Container';
+import ForgotPasswordConnector from '../forgotPassword/ForgotPasswordConnector';
 import CreatePostFormCon from '../CreatePostForm/Container';
 import Home from '../Home';
 
@@ -21,6 +22,7 @@ const App = props => (
         <Switch>
           <Route path='/login' component={LoginFormContainer} />
           <Route path='/signup' component={SignupFormContainer} />
+          <Route path='/forgot-password' component={ForgotPasswordConnector} />
           <Route path='/createpost' component={CreatePostFormCon} />
           <Route path='/' component={Home} />
         </Switch>

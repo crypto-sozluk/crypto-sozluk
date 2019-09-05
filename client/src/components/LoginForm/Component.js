@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { Link } from 'react-router-dom'
 import Form from '../shared/form/Form';
 import renderField from '../shared/form/renderField';
 import { usernameValidator, passwordValidator } from '../../util/validators';
@@ -42,6 +43,7 @@ class LoginForm extends React.Component {
           component={renderField}
           validate={passwordValidator}
         />
+        <Link to="/forgot-password">Uye ol</Link>
         <SubmitButton type='submit'>giris</SubmitButton>
       </Form>
     );

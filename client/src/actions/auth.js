@@ -1,4 +1,24 @@
-import { login, signup } from '../util/api';
+import { forgotPassword, login, signup } from '../util/api';
+
+//sonradan
+export const FORGOT_REQUEST = 'FORGOT_REQUEST';
+export const FORGOT_SUCCESS = 'FORGOT_SUCCESS';
+export const FORGOT_ERROR = 'FORGOT_ERROR';
+
+const forgotRequest = { type: FORGOT_REQUEST };
+const forgotSuccess = token => ({ type: FORGOT_SUCCESS, token });
+const forgotError = error => ({ type: FORGOT_ERROR, error });
+
+
+export const forgotPasswordView = ( email ) => async dispatch => {
+  dispatch(forgotRequest);
+  try {
+    const token = await forgotPassword(email);
+    dispatch(forgotSuccess(token));
+  } catch (error) {
+    dispatch(forgotError(error));
+  }
+};
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -37,6 +57,8 @@ export const attemptSignup = (email, username, password) => async dispatch => {
     dispatch(signupError(error));
   }
 };
+
+
 
 export const LOGOUT = 'LOGOUT';
 export const logout = () => ({ type: LOGOUT });
