@@ -26,7 +26,7 @@ class ForgotPasswordView extends React.Component {
     return (
       <Form
         loading={this.props.loading}
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
+        onSubmit={this.props.onSubmit}
       >
         <Field
           name='email'
@@ -35,15 +35,14 @@ class ForgotPasswordView extends React.Component {
           component={renderField}
           validate={emailValidator}
         />
-        <SubmitButton type='submit'>Reset Password</SubmitButton>
+        <SubmitButton type='submit'>sifre degistir</SubmitButton>
       </Form>
     );
   }
 }
 
 const formForgotPass = reduxForm({
-  Form: 'email',
-  enableReinitialize: true,
+  form: 'email',
 })(ForgotPasswordView)
 
 export default formForgotPass;

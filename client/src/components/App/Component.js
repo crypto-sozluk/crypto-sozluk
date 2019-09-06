@@ -22,7 +22,7 @@ const App = props => (
         <Switch>
           <Route path='/login' component={LoginFormContainer} />
           <Route path='/signup' component={SignupFormContainer} />
-          <Route path='/forgot-password' component={ForgotPasswordConnector} />
+          <Route path='/sifremi-unuttum' component={ForgotPasswordConnector} />
           <Route path='/createpost' component={CreatePostFormCon} />
           <Route path='/' component={Home} />
         </Switch>
