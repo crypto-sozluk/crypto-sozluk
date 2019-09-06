@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { Field, reduxForm  } from 'redux-form';
 import Form from '../../shared/form/Form';
 import renderField from '../../shared/form/renderField';
 import { emailValidator } from '../../../util/validators';
@@ -41,4 +41,9 @@ class ForgotPasswordView extends React.Component {
   }
 }
 
-export default ForgotPasswordView;
+const formForgotPass = reduxForm({
+  Form: 'email',
+  enableReinitialize: true,
+})(ForgotPasswordView)
+
+export default formForgotPass;
