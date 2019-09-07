@@ -30,8 +30,8 @@ class ForgotPasswordView extends React.Component {
       >
         <Field
           name='email'
-          label='email'
-          type='text'
+          label='email adresin'
+          type='email'
           component={renderField}
           validate={emailValidator}
         />
