@@ -8,7 +8,8 @@ import HeaderContainer from '../Header/Container';
 import ErrorNotificationCon from '../ErrorNotification/Container';
 import LoginFormContainer from '../LoginForm/Container';
 import SignupFormContainer from '../SignupForm/Container';
-import ForgotPasswordConnector from '../forgotPassword/ForgotPasswordConnector';
+import ForgotPassword from '../forgotPassword/ForgotPassword';
+import ResetPassword from '../forgotPassword/ResetPassword';
 import CreatePostFormCon from '../CreatePostForm/Container';
 import Home from '../Home';
 
@@ -22,7 +23,8 @@ const App = props => (
         <Switch>
           <Route path='/login' component={LoginFormContainer} />
           <Route path='/signup' component={SignupFormContainer} />
-          <Route path='/sifremi-unuttum' component={ForgotPasswordConnector} />
+          <Route path="/forgot_password" component={ForgotPassword} />
+          <Route path="/reset_password" component={ResetPassword} />
           <Route path='/createpost' component={CreatePostFormCon} />
           <Route path='/' component={Home} />
         </Switch>

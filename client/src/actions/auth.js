@@ -1,24 +1,5 @@
-import { forgotPassword, login, signup } from '../util/api';
-
-//sonradan
-export const FORGOT_REQUEST = 'FORGOT_REQUEST';
-export const FORGOT_SUCCESS = 'FORGOT_SUCCESS';
-export const FORGOT_ERROR = 'FORGOT_ERROR';
-
-const forgotRequest = { type: FORGOT_REQUEST };
-const forgotSuccess = token => ({ type: FORGOT_SUCCESS, token });
-const forgotError = error => ({ type: FORGOT_ERROR, error });
-
-
-export const forgotPasswordView = ( email ) => async dispatch => {
-  dispatch(forgotRequest);
-  try {
-    const token = await forgotPassword(email);
-    dispatch(forgotSuccess(token));
-  } catch (error) {
-    dispatch(forgotError(error));
-  }
-};
+import { login, signup } from '../util/api';
+import axios from 'axios';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -58,7 +39,29 @@ export const attemptSignup = (email, username, password) => async dispatch => {
   }
 };
 
+//sonradan
+export const USER_LOGGED_IN = 'USER_LOGGED_IN';
+export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
+export const confirmAccount = token => dispatch =>
+    axios.post('/api/auth/confirmation', { token })
+        .then((res) => {
+            localStorage.authToken = res.data.user.token;
+            dispatch({
+                type: USER_LOGGED_IN,
+                user: res.data.user
+            });
+        });
 
+export const resetPasswordRequest = ({ email }) => () =>
+    axios.post('/api/auth/reset_password_request', { email });
+
+export const validateToken = token => () =>
+    axios.post('/api/auth/validate_token', { token });
+
+export const resetPassword = data => () =>
+    axios.post('/api/auth/reset_password', { data });
+
+//sonradan end
 
 export const LOGOUT = 'LOGOUT';
 export const logout = () => ({ type: LOGOUT });
