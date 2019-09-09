@@ -1,61 +1,188 @@
-import React from 'react';
+/* eslint-disable no-console */
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import queryString from 'query-string';
-import { validateToken } from '../../actions/auth';
-import Message from '../ui/message.scss';
-import Loader from '../ui/loader.scss';
-import ResetPasswordForm from '../forms/ResetPasswordForm';
-import AppHeader from '../global/appHeader.scss';
-import styles from '../../assets/scss/pages/resetPassword.scss';
-import bootstrap from '../../assets/scss/bootstrap.scss';
-import message from '../../assets/scss/components/ui/message.scss';
-import icons from '../../assets/scss/ionicons.scss';
+import axios from 'axios';
+import TextField from '@material-ui/core/TextField';
 
-class ResetPassword extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: true,
-            success: false
-        };
-    }
+import {
+  LinkButtons,
+  updateButton,
+  homeButton,
+  loginButton,
+  HeaderBar,
+  forgotButton,
+  inputStyle,
+  SubmitButtons,
+} from '../components';
 
-    componentDidMount = () => {
-        const { token } = queryString.parse(window.location.search);
-        this.props.validateToken(token)
-            .then(() => {
-                console.log('Token valid');
-                this.setState({ loading: false, success: true });
-            })
-            .catch(() => {
-                console.log('Token invalid');
-                this.setState({ loading: false, success: false });
-            });
+const loading = {
+  margin: '1em',
+  fontSize: '24px',
+};
+
+const title = {
+  pageTitle: 'Password Reset Screen',
+};
+
+export default class ResetPassword extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      username: '',
+      password: '',
+      updated: false,
+      isLoading: true,
+      error: false,
     };
+  }
 
-    render() {
-        const { loading, success } = this.state;
-        const { token } = queryString.parse(window.location.search);
-
-        return (
-            <div>
-                <AppHeader />
-                <div className={styles['reset-password-page']}>
-                    <div className={bootstrap.container}>
-                        {loading && <Loader text="Loading..." />}
-                        {!loading && success && <ResetPasswordForm history={this.props.history} token={token} />}
-                        {!loading && !success && <Message status={message.negative} icon={icons['ion-android-warning']}>Invalid token</Message>}
-                    </div>
-                </div>
-            </div>
-        );
+  async componentDidMount() {
+    const {
+      match: {
+        params: { token },
+      },
+    } = this.props;
+    try {
+      const response = await axios.get('http://localhost:3003/reset', {
+        params: {
+          resetPasswordToken: token,
+        },
+      });
+      // console.log(response);
+      if (response.data.message === 'password reset link a-ok') {
+        this.setState({
+          username: response.data.username,
+          updated: false,
+          isLoading: false,
+          error: false,
+        });
+      }
+    } catch (error) {
+      console.log(error.response.data);
+      this.setState({
+        updated: false,
+        isLoading: false,
+        error: true,
+      });
     }
+  }
+
+  handleChange = name => (event) => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
+  updatePassword = async (e) => {
+    e.preventDefault();
+    const { username, password } = this.state;
+    const {
+      match: {
+        params: { token },
+      },
+    } = this.props;
+    try {
+      const response = await axios.put(
+        'http://localhost:3003/updatePasswordViaEmail',
+        {
+          username,
+          password,
+          resetPasswordToken: token,
+        },
+      );
+      console.log(response.data);
+      if (response.data.message === 'password updated') {
+        this.setState({
+          updated: true,
+          error: false,
+        });
+      } else {
+        this.setState({
+          updated: false,
+          error: true,
+        });
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
+  render() {
+    const {
+ password, error, isLoading, updated 
+} = this.state;
+
+    if (error) {
+      return (
+        <div>
+          <HeaderBar title={title} />
+          <div style={loading}>
+            <h4>Problem resetting password. Please send another reset link.</h4>
+            <LinkButtons
+              buttonText="Go Home"
+              buttonStyle={homeButton}
+              link="/"
+            />
+            <LinkButtons
+              buttonStyle={forgotButton}
+              buttonText="Forgot Password?"
+              link="/forgotPassword"
+            />
+          </div>
+        </div>
+      );
+    }
+    if (isLoading) {
+      return (
+        <div>
+          <HeaderBar title={title} />
+          <div style={loading}>Loading User Data...</div>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <HeaderBar title={title} />
+        <form className="password-form" onSubmit={this.updatePassword}>
+          <TextField
+            style={inputStyle}
+            id="password"
+            label="password"
+            onChange={this.handleChange('password')}
+            value={password}
+            type="password"
+          />
+          <SubmitButtons
+            buttonStyle={updateButton}
+            buttonText="Update Password"
+          />
+        </form>
+
+        {updated && (
+          <div>
+            <p>
+              Your password has been successfully reset, please try logging in
+              again.
+            </p>
+            <LinkButtons
+              buttonStyle={loginButton}
+              buttonText="Login"
+              link="/login"
+            />
+          </div>
+        )}
+        <LinkButtons buttonText="Go Home" buttonStyle={homeButton} link="/" />
+      </div>
+    );
+  }
 }
 
 ResetPassword.propTypes = {
-    history: PropTypes.shape({}).isRequired,
-    validateToken: PropTypes.func.isRequired
+  // eslint-disable-next-line react/require-default-props
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      token: PropTypes.string.isRequired,
+    }),
+  }),
 };
-
-export default connect(null, { validateToken })(ResetPassword);

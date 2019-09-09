@@ -10,7 +10,7 @@ import LoginFormContainer from '../LoginForm/Container';
 import SignupFormContainer from '../SignupForm/Container';
 import ForgotPassword from '../forgotPassword/ForgotPassword';
 import ResetPassword from '../forgotPassword/ResetPassword';
-import CreatePostFormCon from '../CreatePostForm/Container';
+import UpdatePassword from '../forgotPassword/UpdatePassword';
 import Home from '../Home';
 
 const App = props => (
@@ -23,10 +23,15 @@ const App = props => (
         <Switch>
           <Route path='/login' component={LoginFormContainer} />
           <Route path='/signup' component={SignupFormContainer} />
-          <Route path="/forgot_password" component={ForgotPassword} />
-          <Route path="/reset_password" component={ResetPassword} />
+          <Route exact path="/reset/:token" component={ResetPassword} />
+          <Route exact path="/forgotPassword" component={ForgotPassword} />
           <Route path='/createpost' component={CreatePostFormCon} />
           <Route path='/' component={Home} />
+          <Route
+            exact
+            path="/updatePassword/:username"
+           component={UpdatePassword}
+      />
         </Switch>
       </>
     </Router>
