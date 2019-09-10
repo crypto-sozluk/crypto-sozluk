@@ -6,9 +6,7 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
-  LOGOUT,
-  USER_LOGGED_IN,
-  USER_LOGGED_OUT,
+  LOGOUT
 } from '../actions/auth';
 
 const token = localStorage.getItem('token');
@@ -43,16 +41,5 @@ export default (state = initialState, action) => {
 
     default:
       return state;
-  }
-};
-
-export function auth(state = {}, action = {}) {
-  switch (action.type) {
-      case USER_LOGGED_IN:
-          return action.user;
-      case USER_LOGGED_OUT:
-          return {};
-      default:
-          return state;
   }
 };
