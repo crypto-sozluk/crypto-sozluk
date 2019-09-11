@@ -6,11 +6,13 @@ import CategoryMenuContainer from '../CategoryMenu/Container';
 import PostListContainer from '../PostList/Container';
 import PostDetailContainer from '../PostDetail/Container';
 import SidebarContainer from '../Sidebar/Container';
+import UserProfile from '../Profiles/userProfileContainer';
 
 const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 0 10vw;
+  
   
   @media (max-width: 1024px) {
     margin: 0 5vw;
@@ -34,13 +36,24 @@ const Home = () => (
           <PostListContainer category={match.params.category} />
         )}
       />
+      
+      <Route
+        exact
+        path='/u/:username'
+        render={({ match }) => (
+          <UserProfile username={match.params.username}/>
+        )}
+      />
+      <br>
+      </br>
+      
       <Route
         exact
         path='/u/:username'
         render={({ match }) => (
           <PostListContainer username={match.params.username} />
         )}
-      />
+      />     
       <Route
         exact
         path='/a/:category/:post'

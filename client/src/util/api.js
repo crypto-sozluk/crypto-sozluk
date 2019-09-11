@@ -67,12 +67,6 @@ const methods = {
   }
 };
 
-//sonradan
-export async function forgotPassword ( resetPassword ) {
-  const json = await methods.post('forgotPassword', { resetPassword });
-  return json.token;
-}
-
 export async function login (username, password) {
   const json = await methods.post('login', { username, password });
   return json.token;
@@ -81,6 +75,12 @@ export async function login (username, password) {
 //duzenleme
 export async function signup (email, username, password) {
   const json = await methods.post('register', { email, username, password });
+  return json.token;
+}
+
+//sonradan
+export async function forgotPassword ( resetPassword ) {
+  const json = await methods.post('forgot', { resetPassword });
   return json.token;
 }
 
