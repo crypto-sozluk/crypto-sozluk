@@ -15,6 +15,23 @@ const List = styled.ul`
     border-right: none;
     border-radius: 0;
   }
+
+`;
+const UserPostTitle = styled.ul`
+  list-style: none;
+  border: 1px solid ${props => props.theme.border};
+  border-radius: 2px;
+  font-size: 30px;
+  font-family: monospace;
+  background-color: #e4e1ff8c;
+
+  @media (max-width: 768px) {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    text-align: center;
+  }
 `;
 
 class PostList extends React.Component {
@@ -44,7 +61,7 @@ class PostList extends React.Component {
   render() {
     if (this.props.isFetching) return <LoadingIndicatorBox />;
     if (!this.props.posts || this.props.posts.length === 0) return <Empty />;
-    return <List>{this.mapPosts()}</List>;
+    return  <List><UserPostTitle>Posts: </UserPostTitle>{this.mapPosts()}</List>;
   }
 }
 

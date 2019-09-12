@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   }
 `;
 
+
 const Home = () => (
   <Wrapper>
     <HomeMainSection>
@@ -46,7 +47,7 @@ const Home = () => (
       />
       <br>
       </br>
-      
+    
       <Route
         exact
         path='/u/:username'

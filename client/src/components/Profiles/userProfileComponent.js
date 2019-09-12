@@ -96,7 +96,7 @@ class userProfileComponent extends React.Component {
       <Profile>
         <UserProfileTitle>User Profile</UserProfileTitle>
         <ProfileLogo/>
-          <UserName>squarepusher</UserName>
+          <UserName>hoşgeldin</UserName>
           <Description>merhabalar, 21 yaş istanbul "#BTC ile uğraşıyorum. falanfalan filanfalan filanfalan filanfalan filanfalan filanfalan filan filan</Description> 
       </Profile>
     );
