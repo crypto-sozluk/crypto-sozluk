@@ -1,2 +1,1 @@
 # crypto-sozluk
-# devam etmekte
