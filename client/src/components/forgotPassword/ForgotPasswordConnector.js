@@ -1,17 +1,20 @@
 import React from 'react';
 import ForgotPasswordView from './ui/ForgotPasswordView';
+import { connect } from 'react-redux';
+import { attemptForgot } from '../../actions/auth';
 
-class ForgotPasswordConnector extends React.Component {
-    dummy = async (values) => {
-        console.log(values);
-        return null;
-    }
+const mapStateToProps = state => ({
+  loading: state.auth.loading
+});
 
-    render() {
-        return (
-            <ForgotPasswordView submit={this.dummy} />
-        );
-    }
-}
+const mapDispatchToProps = { attemptForgot };
+
+const enhance = connect(
+    mapStateToProps,
+    mapDispatchToProps
+  );
+
+
+const ForgotPasswordConnector = enhance(ForgotPasswordView);
 
 export default ForgotPasswordConnector;

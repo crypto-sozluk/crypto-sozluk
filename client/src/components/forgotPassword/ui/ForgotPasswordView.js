@@ -1,6 +1,7 @@
 import React from 'react';
-import { Field, reduxForm  } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import Form from '../../shared/form/Form';
+import { forgotPassword } from '../../../util/api';
 import renderField from '../../shared/form/renderField';
 import { emailValidator } from '../../../util/validators';
 import SubmitButton from '../../shared/form/SubmitButton';
@@ -19,14 +20,14 @@ class ForgotPasswordView extends React.Component {
   }
 
   onSubmit = ({ email }) => {
-    this.props.forgotPassword( email );
+    this.props.forgotPassword(email);
   };
 
   render() {
     return (
       <Form
         loading={this.props.loading}
-        onSubmit={this.props.onSubmit}
+        onSubmit={this.props.handleSubmit(this.onSubmit)}
       >
         <Field
           name='email'
@@ -35,7 +36,7 @@ class ForgotPasswordView extends React.Component {
           component={renderField}
           validate={emailValidator}
         />
-        <SubmitButton type='submit'>sifre degistir</SubmitButton>
+        <SubmitButton type='submit'>Sifre Sıfırlayın</SubmitButton>
       </Form>
     );
   }
